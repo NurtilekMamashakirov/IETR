@@ -1,0 +1,139 @@
+<article>
+<h1>3. Техническая характеристика</h1>
+
+<h2 id="reliability">Показатели надёжности</h2>
+<div class="highlight-box">
+  Расчёт надёжности выполнен в соответствии с <b>ГОСТ 27.002-2015</b> на основе данных элементной базы ЛБП и результатов схемотехнического моделирования в Proteus Professional.
+</div>
+<table class="spec-table">
+  <tbody>
+    <tr><td>Средняя наработка на отказ (T₀)</td><td><strong>не менее 26 000 ч (≈ 3 года)</strong></td></tr>
+    <tr><td>Вероятность безотказной работы за 1 год</td><td>высокая (основные элементы — покупная ЭРИ с К_н ≪ 1)</td></tr>
+    <tr><td>Среднее время восстановления</td><td>не более 30 мин</td></tr>
+    <tr><td>Срок службы каждого компонента</td><td>не менее 5 лет</td></tr>
+    <tr><td>Уровень качества ЭРИ</td><td>не ниже ОТК</td></tr>
+    <tr><td>Доля отказов от старения</td><td>не более 10%</td></tr>
+  </tbody>
+</table>
+<div class="card">
+  <p>Все рассчитанные коэффициенты нагрузки (K_н) элементов значительно меньше 1, что свидетельствует о работе компонентов в щадящих режимах и обеспечивает высокий запас надёжности.</p>
+  <p style="margin-top:8px;">Наиболее нагруженный элемент — <b>конденсаторы С3, С4</b> (K_н = 0,452), что остаётся в пределах нормы.</p>
+</div>
+
+<h2 id="schematic">Схема электрическая принципиальная</h2>
+<div class="card card-accent">
+  <p>Схема реализована в среде <b>Proteus Professional</b>. Регулируемый двухканальный ЛБП включает: выпрямитель (диодный мост KBPC110), сглаживающие конденсаторы (2000 мкФ × 2), стабилизатор LM317T, три подстроечных резистора (RV1 — ограничение тока, RV2 — грубая регулировка U, RV3 — точная регулировка U), световую индикацию на трёх светодиодах и защитные диоды.</p>
+</div>
+<div class="img-block">
+  <img src="../images/scheme_page1.png" alt="Схема электрическая принципиальная — общий вид">
+  <div class="img-caption">Рисунок 1 — Схема электрическая принципиальная. Общий вид</div>
+</div>
+<div class="img-block">
+  <img src="../images/scheme_page2.png" alt="Схема электрическая принципиальная — режимы работы">
+  <div class="img-caption">Рисунок 2 — Работа при различных положениях подстроечных резисторов</div>
+</div>
+
+<h2 id="topology">Топологическое моделирование</h2>
+<div class="card card-accent">
+  <p>Топологическое моделирование выполнено в среде <b>EasyEDA</b>. Разработана двусторонняя печатная плата с размещением SMD-компонентов по ГОСТ.</p>
+</div>
+<div class="img-block">
+  <img src="../images/topology_page1.png" alt="Топология — схема для топологии">
+  <div class="img-caption">Рисунок 3 — Исходная схема для топологического моделирования</div>
+</div>
+<div class="img-block">
+  <img src="../images/topology_page2.png" alt="Топология — схема в EasyEDA">
+  <div class="img-caption">Рисунок 4 — Схема в EasyEDA</div>
+</div>
+<div class="img-block">
+  <img src="../images/topology_page3.png" alt="Топология — трассировка платы">
+  <div class="img-caption">Рисунок 5 — Трассировка печатной платы</div>
+</div>
+<div class="img-block">
+  <img src="../images/topology_page4.png" alt="Топология — 3D-вид платы">
+  <div class="img-caption">Рисунок 6 — 3D-вид готовой платы</div>
+</div>
+
+<h2 id="thermal">Тепловое моделирование</h2>
+<div class="card card-accent">
+  <p>Тепловое моделирование выполнено в среде <b>SOLIDWORKS Simulation</b> методом стационарного теплового анализа с конвекцией на открытых поверхностях. Корпус, крышка и крепёж исключены из расчёта для повышения устойчивости модели.</p>
+</div>
+<table class="spec-table">
+  <tbody>
+    <tr><td>Тип анализа</td><td>Стационарный тепловой</td></tr>
+    <tr><td>Температура окружающей среды</td><td>300 К (27°C)</td></tr>
+    <tr><td>Коэффициент теплоотдачи</td><td>20 Вт/(м²·К)</td></tr>
+    <tr><td>Решатель</td><td>Intel Direct Sparse</td></tr>
+  </tbody>
+</table>
+<h3>Тепловые мощности нагревающих элементов</h3>
+<table class="data-table">
+  <thead>
+    <tr><th>Элемент</th><th>Расчётная мощность</th><th>Значение, Вт</th><th>К_н</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>R1</td><td>41,9 мВт</td><td>0,0419</td><td>0,3352</td></tr>
+    <tr><td>R9</td><td>19,8 мВт</td><td>0,0198</td><td>0,1584</td></tr>
+    <tr><td>RV2</td><td>16,4 мВт</td><td>0,0164</td><td>0,0328</td></tr>
+    <tr><td>R8</td><td>13,2 мВт</td><td>0,0132</td><td>0,1056</td></tr>
+    <tr><td>R7</td><td>8,7 мВт</td><td>0,0087</td><td>0,0696</td></tr>
+    <tr><td>R6</td><td>0,320 мВт</td><td>0,000320</td><td>0,0026</td></tr>
+  </tbody>
+</table>
+<div class="img-block">
+  <img src="../images/thermal_page2.png" alt="Тепловое моделирование — результат">
+  <div class="img-caption">Рисунок 7 — Результат теплового моделирования (распределение температур)</div>
+</div>
+<div class="img-block">
+  <img src="../images/thermal_page3.png" alt="Тепловое моделирование — вид сверху">
+  <div class="img-caption">Рисунок 8 — Тепловое поле. Вид сверху</div>
+</div>
+<div class="highlight-box">
+  <strong>Вывод:</strong> Перепад температур по плате минимален. Устройство устойчиво к тепловым деформациям. Принудительное охлаждение не требуется.
+</div>
+
+<h2 id="mechanical">Механическое моделирование</h2>
+<div class="card card-accent">
+  <p>Механическое моделирование выполнено в среде <b>SOLIDWORKS Simulation</b> для сборки устройства в корпусе. Исследовано воздействие на устройство при падении с высоты 1500 мм.</p>
+</div>
+<table class="spec-table">
+  <tbody>
+    <tr><td>Деталь</td><td>Материал</td><td>Примечание</td></tr>
+    <tr><td>Корпус + крышка</td><td>ABS-пластик</td><td>конструктивный материал</td></tr>
+    <tr><td>Печатная плата</td><td>FR4 (стеклотекстолит)</td><td>–</td></tr>
+  </tbody>
+</table>
+<table class="spec-table" style="margin-top:10px;">
+  <tbody>
+    <tr><td>Высота падения</td><td>1500 мм (1,5 м)</td></tr>
+    <tr><td>Коэффициент демпфирования контакта</td><td>0</td></tr>
+    <tr><td>Трение в плоскости</td><td>0</td></tr>
+    <tr><td>Расчётный шаг сетки</td><td>25 мм, элементы 85 093</td></tr>
+  </tbody>
+</table>
+<div class="img-block">
+  <img src="../images/mechanical_page2.png" alt="Механика — напряжение и перемещение">
+  <div class="img-caption">Рисунок 9 — Результаты: распределение напряжений и перемещений</div>
+</div>
+<div class="img-block">
+  <img src="../images/mechanical_page3.png" alt="Механика — деформация">
+  <div class="img-caption">Рисунок 10 — Деформация корпуса при ударе</div>
+</div>
+
+<h2 id="model3d">3D-моделирование</h2>
+<div class="card card-accent">
+  <p>3D-модели разработаны в среде <b>Компас-3D</b>. Созданы детали: корпус, крышка, винт крышки, плата. Выполнена сборка изделия.</p>
+</div>
+<div class="img-block">
+  <img src="../images/3d_page5.png" alt="3D — корпус">
+  <div class="img-caption">Рисунок 11 — 3D-модель корпуса устройства</div>
+</div>
+<div class="img-block">
+  <img src="../images/3d_page10.png" alt="3D — сборка вид сверху">
+  <div class="img-caption">Рисунок 12 — Сборка. Вид сверху (расположение разъёмов и вентиляционных отверстий)</div>
+</div>
+<div class="img-block">
+  <img src="../images/3d_page1.png" alt="3D — винт">
+  <div class="img-caption">Рисунок 13 — Деталь: винт крышки</div>
+</div>
+</article>
